@@ -1,22 +1,26 @@
 # Даны два неупорядоченных набора целых чисел (может быть, с повторениями). Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. Затем пользователь вводит сами элементы множеств.
 
-mol = [int(x) for x in input().split()]
-n = mol[0]
-m = mol[1]
-myset_1 = set()
-myset_2 = set()
+n = int(input("Введите кол-во элементов 1-го множества: "))
+m = int(input("Введите кол-во элементов 2-го множества: "))
 list_1 = list()
-a = [int(x) for x in input().split()]
-k = set(a)
-for i in k:
-    myset_1.add(i)
-b = [int(x) for x in input().split()]
-k1 = set(b)
-for i in k1:
-    myset_2.add(i)
-lok = myset_1 & myset_2
-kool = list(lok)
-kool.sort()
-for i in kool:
-    print(i, end=' ')
+list_2 = list()
+
+print("Поочерёдно введите элементы 1-го множества:")
+for i in range(n):
+    x = int(input())
+    list_1.append(x)
+print(list_1)
+
+print("Поочерёдно введите элементы 2-го множества:")
+for i in range(m):
+    y = int(input())
+    list_2.append(y)
+print(list_2)
+
+list_3 = list_1 + list_2
+
+print("Были найдены следующие совпадения:")
+for i in set(list_3):
+    if list_3.count(i) > 1:
+        print(i)
